@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,24 +16,17 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
 
-var numelDimension = require( '@stdlib/ndarray-base-numel-dimension' );
-var getStride = require( '@stdlib/ndarray-base-stride' );
-var getOffset = require( '@stdlib/ndarray-base-offset' );
-var getData = require( '@stdlib/ndarray-base-data-buffer' );
-var strided = require( '@stdlib/stats-strided-rangeabs' ).ndarray;
-
-
-// MAIN //
+import { ndarray } from '@stdlib/types/ndarray';
 
 /**
 * Computes the range of absolute values of a one-dimensional ndarray.
 *
-* @param {ArrayLikeObject<Object>} arrays - array-like object containing an input ndarray
-* @returns {number} range
+* @param arrays - array-like object containing an input ndarray
+* @returns range
 *
 * @example
 * var ndarray = require( '@stdlib/ndarray-base-ctor' );
@@ -44,12 +37,9 @@ var strided = require( '@stdlib/stats-strided-rangeabs' ).ndarray;
 * var v = rangeabs( [ x ] );
 * // returns 3.0
 */
-function rangeabs( arrays ) {
-	var x = arrays[ 0 ];
-	return strided( numelDimension( x, 0 ), getData( x ), getStride( x, 0 ), getOffset( x ) ); // eslint-disable-line max-len
-}
+declare function rangeabs<T extends ndarray = ndarray>( arrays: [ T ] ): number;
 
 
 // EXPORTS //
 
-module.exports = rangeabs;
+export = rangeabs;
